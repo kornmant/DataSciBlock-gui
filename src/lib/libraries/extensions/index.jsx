@@ -1,6 +1,9 @@
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
 
+import datasciInsetIconURL from './datasci/datasci-icon.svg';
+import datasciIconURL from './datasci/datasci.png';
+
 import musicIconURL from './music/music.png';
 import musicInsetIconURL from './music/music-small.svg';
 
@@ -47,6 +50,15 @@ import gdxforConnectionIconURL from './gdxfor/gdxfor-illustration.svg';
 import gdxforConnectionSmallIconURL from './gdxfor/gdxfor-small.svg';
 
 export default [
+    {
+        name: 'Data Science',
+        extensionId: 'datasci',
+        iconURL: datasciIconURL,
+        insetIconURL: datasciInsetIconURL,
+        description: 'Data Science in blocks',
+        featured: true,
+        disabled: false
+    },
     {
         name: (
             <FormattedMessage

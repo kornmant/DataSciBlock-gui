@@ -17,6 +17,7 @@ import styles from './stage.css';
 const StageComponent = props => {
     const {
         canvas,
+        htmlCanvas,
         dragRef,
         isColorPicking,
         isFullScreen,
@@ -55,7 +56,15 @@ const StageComponent = props => {
                     <DOMElementRenderer
                         domElement={canvas}
                         style={{
-                            height: stageDimensions.height,
+                            height: stageDimensions.height/2,
+                            width: stageDimensions.width
+                        }}
+                        {...boxProps}
+                    />
+                    <DOMElementRenderer
+                        domElement={htmlCanvas}
+                        style={{
+                            height: stageDimensions.height/2,
                             width: stageDimensions.width
                         }}
                         {...boxProps}
@@ -135,6 +144,7 @@ const StageComponent = props => {
 };
 StageComponent.propTypes = {
     canvas: PropTypes.instanceOf(Element).isRequired,
+    htmlCanvas: PropTypes.instanceOf(Element).isRequired,
     colorInfo: Loupe.propTypes.colorInfo,
     dragRef: PropTypes.func,
     isColorPicking: PropTypes.bool,

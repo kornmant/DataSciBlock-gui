@@ -56,6 +56,21 @@ class Stage extends React.Component {
             this.canvas = this.renderer.canvas;
         } else {
             this.canvas = document.createElement('canvas');
+            const htmlCanvas = document.createElement('div');
+            htmlCanvas.id = 'html-canvas';
+            htmlCanvas.style.position = 'absolute';
+            htmlCanvas.style.zIndex = 100;
+            htmlCanvas.style.top = 0;
+            htmlCanvas.style.left = 0;
+            htmlCanvas.style.width = this.canvas.width;
+            htmlCanvas.style.height = this.canvas.height;
+            htmlCanvas.style.resize = 'both';
+            htmlCanvas.style.overflow = 'auto';
+            htmlCanvas.style.backgroundColor = 'transparent';
+
+            this.htmlCanvas = htmlCanvas;
+            document.body.appendChild(htmlCanvas);
+
             this.renderer = new Renderer(this.canvas);
             this.props.vm.attachRenderer(this.renderer);
 
@@ -414,6 +429,7 @@ class Stage extends React.Component {
         return (
             <StageComponent
                 canvas={this.canvas}
+                htmlCanvas={this.htmlCanvas}
                 colorInfo={this.state.colorInfo}
                 dragRef={this.setDragCanvas}
                 question={this.state.question}

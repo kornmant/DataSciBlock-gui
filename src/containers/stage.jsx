@@ -58,15 +58,21 @@ class Stage extends React.Component {
             this.canvas = document.createElement('canvas');
             const htmlCanvas = document.createElement('div');
             htmlCanvas.id = 'html-canvas';
-            htmlCanvas.style.position = 'absolute';
-            htmlCanvas.style.zIndex = 100;
-            htmlCanvas.style.top = 0;
-            htmlCanvas.style.left = 0;
-            htmlCanvas.style.width = this.canvas.width;
-            htmlCanvas.style.height = this.canvas.height;
-            htmlCanvas.style.resize = 'both';
-            htmlCanvas.style.overflow = 'auto';
+            // htmlCanvas.style.position = 'absolute';
+            // htmlCanvas.style.zIndex = 100;
+            // htmlCanvas.style.top = 0;
+            // htmlCanvas.style.left = 0;
+            htmlCanvas.style = this.canvas.style;
+            htmlCanvas.width = this.canvas.width;
+            htmlCanvas.height = this.canvas.height;
+            // htmlCanvas.style.resize = 'both';
+            // htmlCanvas.style.overflow = 'auto';
             htmlCanvas.style.backgroundColor = 'transparent';
+
+            // print onclick
+            htmlCanvas.onclick = function(e) {
+                console.log(e);
+            };
 
             this.htmlCanvas = htmlCanvas;
             document.body.appendChild(htmlCanvas);

@@ -34,7 +34,6 @@ const StageComponent = props => {
     } = props;
 
     const stageDimensions = getStageDimensions(stageSize, isFullScreen);
-
     return (
         <React.Fragment>
             <Box
@@ -49,23 +48,26 @@ const StageComponent = props => {
                         {[styles.fullScreen]: isFullScreen}
                     )}
                     style={{
-                        height: stageDimensions.height,
-                        width: stageDimensions.width
+                        height: stageDimensions.height * 2,
+                        width: stageDimensions.width,
+                        // scrollable if isFullScreen is true
+                        overflow: isFullScreen ? 'scroll' : 'hidden'
+
                     }}
                 >
                     <DOMElementRenderer
                         domElement={canvas}
                         style={{
-                            height: stageDimensions.height/2,
-                            width: stageDimensions.width
+                            height: stageDimensions.height/(isFullScreen?2:1),
+                            width: stageDimensions.width/(isFullScreen?2:1)
                         }}
                         {...boxProps}
                     />
                     <DOMElementRenderer
                         domElement={htmlCanvas}
                         style={{
-                            height: stageDimensions.height/2,
-                            width: stageDimensions.width
+                            height: stageDimensions.height/(isFullScreen?2:1),
+                            width: stageDimensions.width/(isFullScreen?2:1)
                         }}
                         {...boxProps}
                     />

@@ -43,7 +43,7 @@
     opacity: 0;
 }
 .scratch-logo {
-    height:  1.6rem;
+    height:  3.3rem;
     vertical-align: middle;
 }
 
@@ -70,7 +70,7 @@
     display: flex;
     padding: 0 0.25rem;
     text-decoration: none;
-    color: $ui-white;
+    color: #73fbfd; /*$ui-white;*/
     user-select: none;
     align-self: center;
     position: relative;
